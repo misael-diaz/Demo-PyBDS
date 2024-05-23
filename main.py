@@ -32,10 +32,18 @@ x = 0
 y = 0
 z = 0
 
+a_x = 0
+a_y = 0
+a_z = 0
+
 # initializes the Brownian force acting on the sphere
 F_x = 0
 F_y = 0
 F_z = 0
+
+T_x = 0
+T_y = 0
+T_z = 0
 
 # simulation start and end times
 time_start = 0.0
@@ -48,6 +56,8 @@ num_steps = int((time_end - time_start) / time_step)
 
 # defines the "mobility" of the sphere when subjected to Brownian forces
 mob = sqrt(2 * dt)
+# defines the "angular mobility"
+mob_angular = sqrt(1.5 * dt)
 
 step = 0
 # simulates Brownian motion of the sphere
@@ -57,8 +67,16 @@ while (step != num_steps):
     F_y = normal()
     F_z = normal()
 
+    T_x = normal()
+    T_y = normal()
+    T_z = normal()
+
     x += mob * F_x
     y += mob * F_y
     z += mob * F_z
+
+    a_x += mob_angular * T_x
+    a_y += mob_angular * T_y
+    a_z += mob_angular * T_z
 
     step += 1
