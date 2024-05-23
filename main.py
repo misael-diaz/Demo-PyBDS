@@ -41,6 +41,7 @@ F_x = 0
 F_y = 0
 F_z = 0
 
+# initializes the Brownian torque acting on the sphere
 T_x = 0
 T_y = 0
 T_z = 0
